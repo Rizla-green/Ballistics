@@ -31,7 +31,7 @@
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  /* Lock screen */
+  /* Lock */
   #lock {
     position: fixed; inset: 0; z-index: 999;
     background: var(--bg);
@@ -60,18 +60,15 @@
   }
   #lock-btn:active { opacity: 0.8; }
 
-  /* Fixed top bar */
+  /* Top bar */
   #topbar {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between;
     position: fixed;
     top: env(safe-area-inset-top, 0px);
-    left: 0; right: 0;
-    z-index: 100;
+    left: 0; right: 0; z-index: 100;
   }
   #topbar h1 { font-size: 18px; font-weight: 700; }
   .top-btn {
@@ -83,43 +80,52 @@
   .top-btn:active { opacity: 0.7; }
   #back-btn { visibility: hidden; }
 
-  .page-wrap {
-    padding-top: calc(env(safe-area-inset-top, 0px) + 53px);
+  .page-wrap { padding-top: calc(env(safe-area-inset-top, 0px) + 53px); }
+
+  /* Home */
+  #home { display: flex; flex-direction: column; gap: 0; padding: 16px; max-width: 500px; margin: 0 auto; }
+
+  .home-section-title {
+    font-size: 11px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.06em; padding: 16px 0 8px;
+    border-bottom: 1px solid var(--border); margin-bottom: 12px;
   }
 
-  /* Home — 3 big rifle buttons */
-  #home {
-    display: flex; flex-direction: column;
-    gap: 16px; padding: 20px 16px;
-    max-width: 500px; margin: 0 auto;
-  }
   .rifle-btn {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 28px 20px;
-    cursor: pointer;
-    text-align: left;
-    width: 100%;
-    border-left-width: 4px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 20px;
+    cursor: pointer; text-align: left; width: 100%;
+    border-left-width: 4px; margin-bottom: 12px;
   }
   .rifle-btn:active { opacity: 0.8; }
   .rifle-btn.blue { border-left-color: var(--accent); }
   .rifle-btn.green { border-left-color: var(--green); }
   .rifle-btn.amber { border-left-color: var(--amber); }
-  .rifle-btn-title { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .rifle-btn-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
   .rifle-btn-sub { font-size: 13px; color: var(--muted); }
-  .rifle-btn-zero { margin-top: 12px; font-size: 14px; font-weight: 600; }
+  .rifle-btn-zero { margin-top: 10px; font-size: 13px; font-weight: 600; }
   .rifle-btn.blue .rifle-btn-zero { color: var(--accent); }
   .rifle-btn.green .rifle-btn-zero { color: var(--green); }
   .rifle-btn.amber .rifle-btn-zero { color: var(--amber); }
+
+  /* Animal cards on home */
+  .animal-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px; margin-bottom: 8px;
+  }
+  .animal-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 12px;
+  }
+  .animal-card-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .animal-card-stat { font-size: 11px; color: var(--muted); line-height: 1.5; }
+  .animal-card-stat span { color: var(--text); font-weight: 500; }
 
   /* Rifle pages */
   .rifle-page { display: none; }
   .rifle-page.active { display: block; }
   .page-content { padding: 12px 12px 40px; max-width: 600px; margin: 0 auto; }
 
-  /* Page title */
   .page-title {
     font-size: 20px; font-weight: 700;
     padding: 14px 0 10px;
@@ -151,6 +157,20 @@
   .zero-pill.active-amber { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
   .zero-pill:active { opacity: 0.7; }
 
+  /* Animal selector */
+  .animal-selector { margin-bottom: 12px; }
+  .animal-selector-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .animal-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .animal-pill {
+    padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 500;
+    border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+    cursor: pointer;
+  }
+  .animal-pill.selected-blue { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+  .animal-pill.selected-green { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+  .animal-pill.selected-amber { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
+  .animal-pill:active { opacity: 0.7; }
+
   /* Table */
   .section-title {
     font-size: 12px; color: var(--muted); text-transform: uppercase;
@@ -166,9 +186,10 @@
     border-bottom: 1px solid var(--border);
   }
   thead th:first-child { text-align: left; }
-  tbody tr { border-bottom: 1px solid var(--border); }
+  tbody tr { border-bottom: 1px solid var(--border); cursor: pointer; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+  tbody tr:active { background: rgba(255,255,255,0.06) !important; }
   td { padding: 9px 10px; text-align: right; }
   td:first-child { text-align: left; font-weight: 600; }
   .pos { color: var(--green); }
@@ -176,16 +197,48 @@
   .zero-row-hl { background: rgba(56,139,253,0.09) !important; }
   .zero-row-hl td:first-child { color: var(--accent); }
 
-  /* Settings panel */
+  /* Pop-up */
+  #popup-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6); z-index: 200;
+    align-items: center; justify-content: center; padding: 24px;
+  }
+  #popup-overlay.open { display: flex; }
+  #popup {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 24px; width: 100%; max-width: 360px;
+  }
+  .popup-animal { font-size: 28px; margin-bottom: 8px; }
+  .popup-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .popup-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+  .popup-drop {
+    background: var(--bg); border-radius: 10px; padding: 14px;
+    margin-bottom: 12px;
+  }
+  .popup-drop-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .popup-drop-val { font-size: 22px; font-weight: 700; color: var(--red); }
+  .popup-aim {
+    background: var(--accent-dim); border: 1px solid var(--accent);
+    border-radius: 10px; padding: 14px; margin-bottom: 12px;
+  }
+  .popup-aim.green { background: var(--green-dim); border-color: var(--green); }
+  .popup-aim.amber { background: var(--amber-dim); border-color: var(--amber); }
+  .popup-aim-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .popup-aim-val { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .popup-aim-frac { font-size: 13px; color: var(--muted); }
+  .popup-close {
+    width: 100%; background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; color: var(--text); font-size: 15px; font-weight: 600;
+    padding: 13px; cursor: pointer;
+  }
+  .popup-close:active { opacity: 0.7; }
+
+  /* Settings */
   #settings-panel {
-    display: none;
-    position: fixed;
+    display: none; position: fixed;
     top: calc(env(safe-area-inset-top, 0px) + 53px);
     left: 0; right: 0; bottom: 0;
-    background: var(--bg);
-    overflow-y: auto;
-    z-index: 90;
-    padding: 16px;
+    background: var(--bg); overflow-y: auto; z-index: 90; padding: 16px;
   }
   #settings-panel.open { display: block; }
   .settings-title { font-size: 17px; font-weight: 700; margin-bottom: 16px; }
@@ -199,7 +252,7 @@
 </head>
 <body>
 
-<!-- Lock screen -->
+<!-- Lock -->
 <div id="lock">
   <div class="icon">🎯</div>
   <h2>Ballistics</h2>
@@ -209,17 +262,16 @@
   <button id="lock-btn" onclick="unlock()">Unlock</button>
 </div>
 
-<!-- Fixed top bar -->
+<!-- Top bar -->
 <div id="topbar">
   <h1>Ballistics</h1>
   <button class="top-btn" onclick="toggleSettings()">Info</button>
   <button class="top-btn" id="back-btn" onclick="goHome()">Back</button>
 </div>
 
-<!-- Settings panel -->
+<!-- Settings -->
 <div id="settings-panel">
   <div class="settings-title">Rifle Info</div>
-
   <div class="settings-section">
     <h3>Mauser M12 — Old (Pard 008)</h3>
     <div class="settings-row"><span class="settings-key">Scope</span><span class="settings-val">Pard 008</span></div>
@@ -229,7 +281,6 @@
     <div class="settings-row"><span class="settings-key">Muzzle vel</span><span class="settings-val">3000 fps</span></div>
     <div class="settings-row"><span class="settings-key">Zero options</span><span class="settings-val">100 yd / 200 yd</span></div>
   </div>
-
   <div class="settings-section">
     <h3>Mauser M12 — New (Vortex)</h3>
     <div class="settings-row"><span class="settings-key">Scope</span><span class="settings-val">Vortex</span></div>
@@ -239,7 +290,6 @@
     <div class="settings-row"><span class="settings-key">Muzzle vel</span><span class="settings-val">3006 fps</span></div>
     <div class="settings-row"><span class="settings-key">Zero options</span><span class="settings-val">100 yd / 200 yd</span></div>
   </div>
-
   <div class="settings-section">
     <h3>CZ 455 (Pard TD32-70)</h3>
     <div class="settings-row"><span class="settings-key">Ammo</span><span class="settings-val">RWS Subsonic HP</span></div>
@@ -251,10 +301,30 @@
   </div>
 </div>
 
+<!-- Pop-up -->
+<div id="popup-overlay" onclick="closePopup(event)">
+  <div id="popup">
+    <div class="popup-animal" id="popup-animal"></div>
+    <div class="popup-title" id="popup-title"></div>
+    <div class="popup-sub" id="popup-sub"></div>
+    <div class="popup-drop">
+      <div class="popup-drop-label">Bullet drop</div>
+      <div class="popup-drop-val" id="popup-drop"></div>
+    </div>
+    <div class="popup-aim" id="popup-aim-box">
+      <div class="popup-aim-label">Aim above shoulder/heart line</div>
+      <div class="popup-aim-val" id="popup-aim-val"></div>
+      <div class="popup-aim-frac" id="popup-aim-frac"></div>
+    </div>
+    <button class="popup-close" onclick="closePopup()">Close</button>
+  </div>
+</div>
+
 <div class="page-wrap">
 
   <!-- Home -->
   <div id="home">
+    <div class="home-section-title">Select Rifle</div>
     <div class="rifle-btn blue" onclick="openRifle('m12old')">
       <div class="rifle-btn-title">M12 Old</div>
       <div class="rifle-btn-sub">Mauser M12 Impact — Pard 008</div>
@@ -270,9 +340,22 @@
       <div class="rifle-btn-sub">CZ 455 — Pard TD32-70</div>
       <div class="rifle-btn-zero" id="home-cz-zero">Zero: 50 yd</div>
     </div>
+
+    <div class="home-section-title">Animal Reference</div>
+    <div class="animal-grid">
+      <div class="animal-card"><div class="animal-card-name">🦊 Fox</div><div class="animal-card-stat">Shoulder: <span>38 cm / 15"</span><br>Body: <span>68 cm / 27"</span></div></div>
+      <div class="animal-card"><div class="animal-card-name">🦌 Red Deer</div><div class="animal-card-stat">Shoulder: <span>122 cm / 48"</span><br>Body: <span>200 cm / 79"</span></div></div>
+      <div class="animal-card"><div class="animal-card-name">🦌 Fallow Deer</div><div class="animal-card-stat">Shoulder: <span>90 cm / 35"</span><br>Body: <span>152 cm / 60"</span></div></div>
+      <div class="animal-card"><div class="animal-card-name">🦌 Roe Deer</div><div class="animal-card-stat">Shoulder: <span>68 cm / 27"</span><br>Body: <span>115 cm / 45"</span></div></div>
+      <div class="animal-card"><div class="animal-card-name">🦌 Muntjac</div><div class="animal-card-stat">Shoulder: <span>48 cm / 19"</span><br>Body: <span>98 cm / 39"</span></div></div>
+      <div class="animal-card"><div class="animal-card-name">🦌 Chinese Water</div><div class="animal-card-stat">Shoulder: <span>50 cm / 20"</span><br>Body: <span>88 cm / 35"</span></div></div>
+      <div class="animal-card"><div class="animal-card-name">🐐 Feral Goat</div><div class="animal-card-stat">Shoulder: <span>70 cm / 28"</span><br>Body: <span>135 cm / 53"</span></div></div>
+      <div class="animal-card"><div class="animal-card-name">🐇 Rabbit</div><div class="animal-card-stat">Shoulder: <span>12 cm / 5"</span><br>Body: <span>40 cm / 16"</span></div></div>
+      <div class="animal-card"><div class="animal-card-name">🐀 Rat</div><div class="animal-card-stat">Shoulder: <span>6 cm / 2.4"</span><br>Body: <span>22 cm / 9"</span></div></div>
+    </div>
   </div>
 
-  <!-- M12 OLD page -->
+  <!-- M12 OLD -->
   <div id="page-m12old" class="rifle-page">
     <div class="page-content">
       <div class="page-title">M12 Old <span>Pard 008</span></div>
@@ -286,6 +369,10 @@
           <button class="zero-pill" id="old-btn-100" onclick="setOldZero(100)">100 yd</button>
         </div>
       </div>
+      <div class="animal-selector">
+        <div class="animal-selector-label">Select animal for holdover</div>
+        <div class="animal-pills" id="old-animal-pills"></div>
+      </div>
       <div class="section-title" id="old-section-title">Trajectory — 200 yd zero</div>
       <div class="tbl-wrap">
         <table>
@@ -296,7 +383,7 @@
     </div>
   </div>
 
-  <!-- M12 NEW page -->
+  <!-- M12 NEW -->
   <div id="page-m12new" class="rifle-page">
     <div class="page-content">
       <div class="page-title">M12 New <span>Vortex</span></div>
@@ -310,6 +397,10 @@
           <button class="zero-pill" id="new-btn-100" onclick="setNewZero(100)">100 yd</button>
         </div>
       </div>
+      <div class="animal-selector">
+        <div class="animal-selector-label">Select animal for holdover</div>
+        <div class="animal-pills" id="new-animal-pills"></div>
+      </div>
       <div class="section-title" id="new-section-title">Trajectory — 200 yd zero</div>
       <div class="tbl-wrap">
         <table>
@@ -320,7 +411,7 @@
     </div>
   </div>
 
-  <!-- CZ 455 page -->
+  <!-- CZ 455 -->
   <div id="page-cz455" class="rifle-page">
     <div class="page-content">
       <div class="page-title">.22 CZ <span>Pard TD32-70</span></div>
@@ -333,6 +424,10 @@
           <button class="zero-pill active-amber" id="cz-btn-50" onclick="setCZZero(50)">50 yd</button>
           <button class="zero-pill" id="cz-btn-60" onclick="setCZZero(60)">60 yd</button>
         </div>
+      </div>
+      <div class="animal-selector">
+        <div class="animal-selector-label">Select animal for holdover</div>
+        <div class="animal-pills" id="cz-animal-pills"></div>
       </div>
       <div class="section-title" id="cz-section-title">Trajectory — 50 yd zero</div>
       <div class="tbl-wrap">
@@ -347,8 +442,25 @@
 </div>
 
 <script>
+// ── Animal data (shoulder height in inches) ──
+const animalsM12 = [
+  {id:'fox',    name:'Fox',          emoji:'🦊', shoulder:15.0},
+  {id:'red',    name:'Red Deer',     emoji:'🦌', shoulder:48.0},
+  {id:'fallow', name:'Fallow Deer',  emoji:'🦌', shoulder:35.4},
+  {id:'roe',    name:'Roe Deer',     emoji:'🦌', shoulder:26.8},
+  {id:'muntjac',name:'Muntjac',      emoji:'🦌', shoulder:18.9},
+  {id:'cwd',    name:'Chinese Water',emoji:'🦌', shoulder:19.7},
+  {id:'goat',   name:'Feral Goat',   emoji:'🐐', shoulder:27.6},
+];
+const animalsCZ = [
+  {id:'rat',    name:'Rat',    emoji:'🐀', shoulder:2.4},
+  {id:'rabbit', name:'Rabbit', emoji:'🐇', shoulder:4.7},
+  {id:'fox',    name:'Fox',    emoji:'🦊', shoulder:15.0},
+];
+
+// ── Trajectory data ──
 const oldData = {
-  200: [
+  200:[
     [0,'-2.50','+2.50','-0.07'],[20,'-1.51','+1.51','-0.04'],[40,'-0.68','+0.68','-0.02'],
     [60,'-0.02','+0.02','-0.00'],[80,'+0.49','-0.49','+0.01'],[100,'+0.83','-0.83','+0.02'],
     [120,'+1.01','-1.01','+0.03'],[140,'+1.02','-1.02','+0.03'],[160,'+0.86','-0.86','+0.02'],
@@ -359,7 +471,7 @@ const oldData = {
     [420,'-21.72','+21.72','-0.58'],[440,'-24.76','+24.76','-0.66'],[460,'-28.02','+28.02','-0.75'],
     [480,'-31.51','+31.51','-0.84'],[500,'-35.22','+35.22','-0.94'],
   ],
-  100: [
+  100:[
     [0,'-2.50','+2.50','-0.07'],[20,'-1.68','+1.68','-0.04'],[40,'-1.02','+1.02','-0.03'],
     [60,'-0.52','+0.52','-0.01'],[80,'-0.18','+0.18','-0.00'],[100,'0.00','-0.00','0.00'],
     [120,'+0.01','-0.01','0.00'],[140,'-0.15','+0.15','-0.00'],[160,'-0.48','+0.48','-0.01'],
@@ -371,9 +483,8 @@ const oldData = {
     [480,'-31.51','+31.51','-0.84'],[500,'-35.22','+35.22','-0.94'],
   ]
 };
-
 const newData = {
-  200: [
+  200:[
     [0,'-2.05','+2.05','-0.05'],[20,'-1.11','+1.11','-0.03'],[40,'-0.32','+0.32','-0.01'],
     [60,'+0.30','-0.30','+0.01'],[80,'+0.76','-0.76','+0.02'],[100,'+1.06','-1.06','+0.03'],
     [120,'+1.19','-1.19','+0.03'],[140,'+1.16','-1.16','+0.03'],[160,'+0.95','-0.95','+0.03'],
@@ -384,7 +495,7 @@ const newData = {
     [420,'-23.18','+23.18','-0.62'],[440,'-26.31','+26.31','-0.70'],[460,'-29.67','+29.67','-0.79'],
     [480,'-33.24','+33.24','-0.88'],[500,'-37.05','+37.05','-0.99'],
   ],
-  100: [
+  100:[
     [0,'-2.05','+2.05','-0.05'],[20,'-1.32','+1.32','-0.04'],[40,'-0.75','+0.75','-0.02'],
     [60,'-0.34','+0.34','-0.01'],[80,'-0.09','+0.09','-0.00'],[100,'0.00','-0.00','0.00'],
     [120,'-0.08','+0.08','-0.00'],[140,'-0.33','+0.33','-0.01'],[160,'-0.75','+0.75','-0.02'],
@@ -396,7 +507,6 @@ const newData = {
     [480,'-33.24','+33.24','-0.88'],[500,'-37.05','+37.05','-0.99'],
   ]
 };
-
 const czData = [
   [0,1010,{d50:'-1.97',h50:'—',d60:'-1.97',h60:'—'}],
   [5,993,{d50:'-1.38',h50:'+5.4',d60:'-1.31',h60:'+5.1'}],
@@ -442,6 +552,23 @@ const czData = [
 ];
 
 let oldZero=200, newZero=200, czZero=50;
+let selectedAnimal = {m12old:null, m12new:null, cz455:null};
+let currentRifle = null;
+
+// ── Fraction helper ──
+function toFraction(ratio) {
+  const fracs = [
+    {val:0.25, str:'¼'},{val:0.33, str:'⅓'},{val:0.5, str:'½'},
+    {val:0.67, str:'⅔'},{val:0.75, str:'¾'},{val:1.0, str:'1 whole'},
+    {val:1.25, str:'1¼'},{val:1.5, str:'1½'},{val:2.0, str:'2 whole'},
+  ];
+  let best = fracs[0], bestDiff = Math.abs(ratio - fracs[0].val);
+  for (const f of fracs) {
+    const d = Math.abs(ratio - f.val);
+    if (d < bestDiff) { bestDiff = d; best = f; }
+  }
+  return best.str;
+}
 
 function dc(v) {
   if (!v || v==='—') return '';
@@ -450,13 +577,68 @@ function dc(v) {
   return '';
 }
 
-function renderM12(data, zero, tbodyId, titleId) {
+// ── Animal pills ──
+function buildAnimalPills(containerId, animals, rifleId, colorClass) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  for (const a of animals) {
+    const btn = document.createElement('button');
+    btn.className = 'animal-pill';
+    btn.textContent = a.emoji + ' ' + a.name;
+    btn.onclick = () => selectAnimal(rifleId, a, colorClass, containerId);
+    btn.id = 'pill-' + rifleId + '-' + a.id;
+    el.appendChild(btn);
+  }
+}
+
+function selectAnimal(rifleId, animal, colorClass, containerId) {
+  selectedAnimal[rifleId] = animal;
+  const pills = document.querySelectorAll('#' + containerId + ' .animal-pill');
+  pills.forEach(p => p.className = 'animal-pill');
+  document.getElementById('pill-' + rifleId + '-' + animal.id).className = 'animal-pill ' + colorClass;
+  // Re-render table to update styling
+  if (rifleId === 'm12old') renderM12(oldData, oldZero, 'old-tbody', 'old-section-title', 'm12old');
+  if (rifleId === 'm12new') renderM12(newData, newZero, 'new-tbody', 'new-section-title', 'm12new');
+  if (rifleId === 'cz455') setCZZero(czZero);
+}
+
+// ── Popup ──
+function showPopup(yd, dropStr, rifleId, colorClass) {
+  const animal = selectedAnimal[rifleId];
+  if (!animal) return;
+  const drop = Math.abs(parseFloat(dropStr));
+  if (isNaN(drop) || drop === 0) return;
+  const ratio = drop / animal.shoulder;
+  const frac = toFraction(ratio);
+  document.getElementById('popup-animal').textContent = animal.emoji;
+  document.getElementById('popup-title').textContent = animal.name + ' — ' + yd + ' yards';
+  document.getElementById('popup-sub').textContent = 'Aim above the shoulder/heart line';
+  document.getElementById('popup-drop').textContent = drop.toFixed(2) + '" (' + (drop * 2.54).toFixed(1) + ' cm)';
+  document.getElementById('popup-aim-val').textContent = drop.toFixed(2) + '" above shoulder/heart line';
+  document.getElementById('popup-aim-frac').textContent = 'About ' + frac + ' of a ' + animal.name.toLowerCase() + "'s shoulder height";
+  const box = document.getElementById('popup-aim-box');
+  box.className = 'popup-aim' + (colorClass === 'selected-green' ? ' green' : colorClass === 'selected-amber' ? ' amber' : '');
+  document.getElementById('popup-overlay').classList.add('open');
+}
+
+function closePopup(e) {
+  if (!e || e.target === document.getElementById('popup-overlay')) {
+    document.getElementById('popup-overlay').classList.remove('open');
+  }
+}
+
+// ── Render M12 ──
+function renderM12(data, zero, tbodyId, titleId, rifleId) {
   document.getElementById(titleId).textContent = 'Trajectory — ' + zero + ' yd zero';
+  const colorMap = {m12old:'selected-blue', m12new:'selected-green'};
+  const cc = colorMap[rifleId];
+  const hasAnimal = !!selectedAnimal[rifleId];
   let html = '';
   for (const [yd, drop, comeup, wind] of data[zero]) {
     const hl = yd===zero ? ' class="zero-row-hl"' : '';
     const label = yd===zero ? yd+' yd ●' : yd+' yd';
-    html += `<tr${hl}><td>${label}</td><td class="${dc(drop)}">${drop}</td><td class="${dc(comeup)}">${comeup}</td><td class="${dc(wind)}">${wind}</td></tr>`;
+    const clickable = hasAnimal && drop !== '0.00' && !drop.startsWith('+') ? ` onclick="showPopup(${yd},'${drop}','${rifleId}','${cc}')"` : '';
+    html += `<tr${hl}${clickable}><td>${label}</td><td class="${dc(drop)}">${drop}</td><td class="${dc(comeup)}">${comeup}</td><td class="${dc(wind)}">${wind}</td></tr>`;
   }
   document.getElementById(tbodyId).innerHTML = html;
 }
@@ -467,7 +649,7 @@ function setOldZero(z) {
   document.getElementById('old-btn-200').className='zero-pill'+(z===200?' active-blue':'');
   document.getElementById('old-btn-100').className='zero-pill'+(z===100?' active-blue':'');
   document.getElementById('home-old-zero').textContent='Zero: '+z+' yd';
-  renderM12(oldData, z, 'old-tbody', 'old-section-title');
+  renderM12(oldData, z, 'old-tbody', 'old-section-title', 'm12old');
 }
 
 function setNewZero(z) {
@@ -476,7 +658,7 @@ function setNewZero(z) {
   document.getElementById('new-btn-200').className='zero-pill'+(z===200?' active-green':'');
   document.getElementById('new-btn-100').className='zero-pill'+(z===100?' active-green':'');
   document.getElementById('home-new-zero').textContent='Zero: '+z+' yd';
-  renderM12(newData, z, 'new-tbody', 'new-section-title');
+  renderM12(newData, z, 'new-tbody', 'new-section-title', 'm12new');
 }
 
 function setCZZero(z) {
@@ -487,16 +669,21 @@ function setCZZero(z) {
   document.getElementById('cz-section-title').textContent='Trajectory — '+z+' yd zero';
   document.getElementById('home-cz-zero').textContent='Zero: '+z+' yd';
   const dk=z===50?'d50':'d60', hk=z===50?'h50':'h60';
+  const hasAnimal = !!selectedAnimal['cz455'];
   let html='';
   for (const [yd,vel,vals] of czData) {
     const hl=yd===z?' class="zero-row-hl"':'';
     const label=yd===z?yd+' yd ●':yd+' yd';
-    html+=`<tr${hl}><td>${label}</td><td>${vel}</td><td class="${dc(vals[dk])}">${vals[dk]}"</td><td>${vals[hk]}</td></tr>`;
+    const dropVal = vals[dk];
+    const isNeg = dropVal.startsWith('-') && dropVal !== '-0.00';
+    const clickable = hasAnimal && isNeg ? ` onclick="showPopup(${yd},'${dropVal}','cz455','selected-amber')"` : '';
+    html+=`<tr${hl}${clickable}><td>${label}</td><td>${vel}</td><td class="${dc(dropVal)}">${dropVal}"</td><td>${vals[hk]}</td></tr>`;
   }
   document.getElementById('cz-tbody').innerHTML=html;
 }
 
 function openRifle(id) {
+  currentRifle = id;
   document.getElementById('home').style.display='none';
   document.querySelectorAll('.rifle-page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
@@ -505,18 +692,15 @@ function openRifle(id) {
 }
 
 function goHome() {
+  currentRifle = null;
   document.getElementById('home').style.display='flex';
   document.querySelectorAll('.rifle-page').forEach(p=>p.classList.remove('active'));
   document.getElementById('back-btn').style.visibility='hidden';
   closeSettings();
 }
 
-function toggleSettings() {
-  document.getElementById('settings-panel').classList.toggle('open');
-}
-function closeSettings() {
-  document.getElementById('settings-panel').classList.remove('open');
-}
+function toggleSettings() { document.getElementById('settings-panel').classList.toggle('open'); }
+function closeSettings() { document.getElementById('settings-panel').classList.remove('open'); }
 
 function unlock() {
   if (document.getElementById('pw-input').value==='5988') {
@@ -530,8 +714,12 @@ function unlock() {
 }
 try { if (localStorage.getItem('bal_auth')==='1') document.getElementById('lock').style.display='none'; } catch(e){}
 
-renderM12(oldData,200,'old-tbody','old-section-title');
-renderM12(newData,200,'new-tbody','new-section-title');
+// Init
+buildAnimalPills('old-animal-pills', animalsM12, 'm12old', 'selected-blue');
+buildAnimalPills('new-animal-pills', animalsM12, 'm12new', 'selected-green');
+buildAnimalPills('cz-animal-pills', animalsCZ, 'cz455', 'selected-amber');
+renderM12(oldData,200,'old-tbody','old-section-title','m12old');
+renderM12(newData,200,'new-tbody','new-section-title','m12new');
 setCZZero(50);
 </script>
 </body>

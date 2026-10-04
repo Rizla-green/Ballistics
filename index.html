@@ -22,22 +22,16 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    background: var(--bg);
-    color: var(--text);
+    background: var(--bg); color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 15px;
-    min-height: 100vh;
+    font-size: 15px; min-height: 100vh;
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
-
-  /* Lock */
   #lock {
     position: fixed; inset: 0; z-index: 999;
-    background: var(--bg);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 20px; padding: 32px;
+    background: var(--bg); display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 20px; padding: 32px;
   }
   #lock .icon { font-size: 52px; }
   #lock h2 { font-size: 24px; font-weight: 700; }
@@ -46,58 +40,42 @@
     width: 100%; max-width: 260px;
     background: var(--surface); border: 1px solid var(--border);
     border-radius: 10px; color: var(--text);
-    font-size: 26px; font-weight: 700;
-    text-align: center; padding: 14px;
-    letter-spacing: 8px; outline: none;
+    font-size: 26px; font-weight: 700; text-align: center;
+    padding: 14px; letter-spacing: 8px; outline: none;
   }
   #lock input:focus { border-color: var(--accent); }
   #lock-error { font-size: 13px; color: var(--red); min-height: 18px; }
   #lock-btn {
     width: 100%; max-width: 260px;
     background: var(--accent); border: none; border-radius: 10px;
-    color: #fff; font-size: 16px; font-weight: 600;
-    padding: 16px; cursor: pointer;
+    color: #fff; font-size: 16px; font-weight: 600; padding: 16px; cursor: pointer;
   }
-  #lock-btn:active { opacity: 0.8; }
-
-  /* Top bar */
   #topbar {
-    background: var(--surface);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 16px;
-    display: flex; align-items: center; justify-content: space-between;
-    position: fixed;
-    top: env(safe-area-inset-top, 0px);
-    left: 0; right: 0; z-index: 100;
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;
+    position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; z-index: 100;
   }
   #topbar h1 { font-size: 18px; font-weight: 700; }
   .top-btn {
-    background: none; border: 1px solid var(--border);
-    border-radius: 8px; color: var(--text);
-    padding: 7px 14px; cursor: pointer; font-size: 13px;
+    background: none; border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text); padding: 7px 14px; cursor: pointer; font-size: 13px;
     font-weight: 500; min-width: 60px; text-align: center;
   }
-  .top-btn:active { opacity: 0.7; }
   #back-btn { visibility: hidden; }
-
   .page-wrap { padding-top: calc(env(safe-area-inset-top, 0px) + 53px); }
 
   /* Home */
-  #home { display: flex; flex-direction: column; gap: 0; padding: 16px; max-width: 500px; margin: 0 auto; }
-
+  #home { display: flex; flex-direction: column; padding: 16px; max-width: 500px; margin: 0 auto; }
   .home-section-title {
     font-size: 11px; color: var(--muted); text-transform: uppercase;
     letter-spacing: 0.06em; padding: 16px 0 8px;
     border-bottom: 1px solid var(--border); margin-bottom: 12px;
   }
-
   .rifle-btn {
     background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 24px 20px;
-    cursor: pointer; text-align: left; width: 100%;
-    border-left-width: 4px; margin-bottom: 12px;
+    border-radius: 14px; padding: 24px 20px; cursor: pointer;
+    text-align: left; width: 100%; border-left-width: 4px; margin-bottom: 12px;
   }
-  .rifle-btn:active { opacity: 0.8; }
   .rifle-btn.blue { border-left-color: var(--accent); }
   .rifle-btn.green { border-left-color: var(--green); }
   .rifle-btn.amber { border-left-color: var(--amber); }
@@ -107,34 +85,19 @@
   .rifle-btn.blue .rifle-btn-zero { color: var(--accent); }
   .rifle-btn.green .rifle-btn-zero { color: var(--green); }
   .rifle-btn.amber .rifle-btn-zero { color: var(--amber); }
-
-  /* Animal cards on home */
-  .animal-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 8px; margin-bottom: 8px;
-  }
-  .animal-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; padding: 10px 12px;
-  }
+  .animal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+  .animal-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; }
   .animal-card-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
-  .animal-card-stat { font-size: 11px; color: var(--muted); line-height: 1.5; }
+  .animal-card-stat { font-size: 11px; color: var(--muted); line-height: 1.6; }
   .animal-card-stat span { color: var(--text); font-weight: 500; }
 
   /* Rifle pages */
   .rifle-page { display: none; }
   .rifle-page.active { display: block; }
   .page-content { padding: 12px 12px 40px; max-width: 600px; margin: 0 auto; }
-
-  .page-title {
-    font-size: 20px; font-weight: 700;
-    padding: 14px 0 10px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 12px;
-  }
+  .page-title { font-size: 20px; font-weight: 700; padding: 14px 0 10px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
   .page-title span { font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 8px; }
 
-  /* Zero banner */
   .zero-banner {
     display: flex; align-items: center; justify-content: space-between;
     border-radius: 10px; padding: 14px 16px; margin-bottom: 12px;
@@ -147,31 +110,15 @@
   .zero-banner-val span { font-size: 15px; font-weight: 400; color: var(--muted); }
   .zero-toggle-group { display: flex; flex-direction: column; gap: 6px; }
   .zero-pill {
-    padding: 7px 16px; border-radius: 20px;
-    font-size: 13px; font-weight: 500; cursor: pointer;
-    border: 1px solid var(--border); background: var(--bg);
-    color: var(--muted); white-space: nowrap;
+    padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
+    cursor: pointer; border: 1px solid var(--border); background: var(--bg); color: var(--muted);
   }
   .zero-pill.active-blue { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
   .zero-pill.active-green { background: var(--green-dim); border-color: var(--green); color: var(--green); }
   .zero-pill.active-amber { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
-  .zero-pill:active { opacity: 0.7; }
 
-  /* Animal selector */
-  .animal-selector { margin-bottom: 12px; }
-  .animal-selector-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
-  .animal-pills { display: flex; flex-wrap: wrap; gap: 6px; }
-  .animal-pill {
-    padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 500;
-    border: 1px solid var(--border); background: var(--bg); color: var(--muted);
-    cursor: pointer;
-  }
-  .animal-pill.selected-blue { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
-  .animal-pill.selected-green { background: var(--green-dim); border-color: var(--green); color: var(--green); }
-  .animal-pill.selected-amber { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
-  .animal-pill:active { opacity: 0.7; }
+  .tap-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; text-align: center; }
 
-  /* Table */
   .section-title {
     font-size: 12px; color: var(--muted); text-transform: uppercase;
     letter-spacing: 0.06em; margin: 14px 0 8px;
@@ -180,16 +127,15 @@
   .tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   thead th {
-    background: var(--card); padding: 9px 10px;
-    font-size: 11px; color: var(--muted); font-weight: 500;
-    text-align: right; text-transform: uppercase; letter-spacing: 0.04em;
+    background: var(--card); padding: 9px 10px; font-size: 11px; color: var(--muted);
+    font-weight: 500; text-align: right; text-transform: uppercase; letter-spacing: 0.04em;
     border-bottom: 1px solid var(--border);
   }
   thead th:first-child { text-align: left; }
   tbody tr { border-bottom: 1px solid var(--border); cursor: pointer; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:nth-child(even) { background: rgba(255,255,255,0.02); }
-  tbody tr:active { background: rgba(255,255,255,0.06) !important; }
+  tbody tr:active { background: rgba(255,255,255,0.07) !important; }
   td { padding: 9px 10px; text-align: right; }
   td:first-child { text-align: left; font-weight: 600; }
   .pos { color: var(--green); }
@@ -197,41 +143,57 @@
   .zero-row-hl { background: rgba(56,139,253,0.09) !important; }
   .zero-row-hl td:first-child { color: var(--accent); }
 
-  /* Pop-up */
+  /* Popup */
   #popup-overlay {
     display: none; position: fixed; inset: 0;
-    background: rgba(0,0,0,0.6); z-index: 200;
-    align-items: center; justify-content: center; padding: 24px;
+    background: rgba(0,0,0,0.7); z-index: 500;
+    align-items: flex-end; justify-content: center;
+    padding: 0;
   }
   #popup-overlay.open { display: flex; }
   #popup {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 16px; padding: 24px; width: 100%; max-width: 360px;
+    border-radius: 20px 20px 0 0; padding: 24px 20px 36px;
+    width: 100%; max-width: 500px;
   }
-  .popup-animal { font-size: 28px; margin-bottom: 8px; }
-  .popup-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-  .popup-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
-  .popup-drop {
-    background: var(--bg); border-radius: 10px; padding: 14px;
-    margin-bottom: 12px;
+  .popup-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .popup-range { font-size: 20px; font-weight: 700; }
+  .popup-range span { font-size: 13px; font-weight: 400; color: var(--muted); margin-left: 6px; }
+  .popup-close-x {
+    background: var(--card); border: 1px solid var(--border); border-radius: 50%;
+    color: var(--muted); width: 32px; height: 32px; font-size: 16px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
   }
-  .popup-drop-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .popup-drop-row {
+    background: var(--bg); border-radius: 10px; padding: 12px 14px; margin-bottom: 14px;
+  }
+  .popup-drop-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
   .popup-drop-val { font-size: 22px; font-weight: 700; color: var(--red); }
-  .popup-aim {
-    background: var(--accent-dim); border: 1px solid var(--accent);
-    border-radius: 10px; padding: 14px; margin-bottom: 12px;
+
+  /* Animal selection inside popup */
+  .popup-animal-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; }
+  .popup-animal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); gap: 6px; margin-bottom: 14px; }
+  .popup-animal-btn {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 8px 6px; cursor: pointer; text-align: center; font-size: 12px; font-weight: 500;
+    color: var(--muted);
   }
-  .popup-aim.green { background: var(--green-dim); border-color: var(--green); }
-  .popup-aim.amber { background: var(--amber-dim); border-color: var(--amber); }
+  .popup-animal-btn .pa-emoji { font-size: 20px; display: block; margin-bottom: 3px; }
+  .popup-animal-btn.sel-blue { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+  .popup-animal-btn.sel-green { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+  .popup-animal-btn.sel-amber { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
+
+  /* Result */
+  #popup-result { display: none; }
+  .popup-aim-box {
+    border-radius: 10px; padding: 14px; margin-bottom: 14px;
+    border: 1px solid var(--accent); background: var(--accent-dim);
+  }
+  .popup-aim-box.green { background: var(--green-dim); border-color: var(--green); }
+  .popup-aim-box.amber { background: var(--amber-dim); border-color: var(--amber); }
   .popup-aim-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
-  .popup-aim-val { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .popup-aim-val { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
   .popup-aim-frac { font-size: 13px; color: var(--muted); }
-  .popup-close {
-    width: 100%; background: var(--card); border: 1px solid var(--border);
-    border-radius: 10px; color: var(--text); font-size: 15px; font-weight: 600;
-    padding: 13px; cursor: pointer;
-  }
-  .popup-close:active { opacity: 0.7; }
 
   /* Settings */
   #settings-panel {
@@ -252,7 +214,6 @@
 </head>
 <body>
 
-<!-- Lock -->
 <div id="lock">
   <div class="icon">🎯</div>
   <h2>Ballistics</h2>
@@ -262,14 +223,12 @@
   <button id="lock-btn" onclick="unlock()">Unlock</button>
 </div>
 
-<!-- Top bar -->
 <div id="topbar">
   <h1>Ballistics</h1>
   <button class="top-btn" onclick="toggleSettings()">Info</button>
   <button class="top-btn" id="back-btn" onclick="goHome()">Back</button>
 </div>
 
-<!-- Settings -->
 <div id="settings-panel">
   <div class="settings-title">Rifle Info</div>
   <div class="settings-section">
@@ -301,28 +260,30 @@
   </div>
 </div>
 
-<!-- Pop-up -->
-<div id="popup-overlay" onclick="closePopup(event)">
+<!-- Popup -->
+<div id="popup-overlay">
   <div id="popup">
-    <div class="popup-animal" id="popup-animal"></div>
-    <div class="popup-title" id="popup-title"></div>
-    <div class="popup-sub" id="popup-sub"></div>
-    <div class="popup-drop">
-      <div class="popup-drop-label">Bullet drop</div>
-      <div class="popup-drop-val" id="popup-drop"></div>
+    <div class="popup-header">
+      <div class="popup-range" id="popup-range">260 <span>yards</span></div>
+      <button class="popup-close-x" onclick="closePopup()">✕</button>
     </div>
-    <div class="popup-aim" id="popup-aim-box">
-      <div class="popup-aim-label">Aim above shoulder/heart line</div>
-      <div class="popup-aim-val" id="popup-aim-val"></div>
-      <div class="popup-aim-frac" id="popup-aim-frac"></div>
+    <div class="popup-drop-row">
+      <div class="popup-drop-label">Bullet drop at this range</div>
+      <div class="popup-drop-val" id="popup-drop-val">—</div>
     </div>
-    <button class="popup-close" onclick="closePopup()">Close</button>
+    <div class="popup-animal-label">Select animal</div>
+    <div class="popup-animal-grid" id="popup-animal-grid"></div>
+    <div id="popup-result">
+      <div class="popup-aim-box" id="popup-aim-box">
+        <div class="popup-aim-label">Aim above shoulder/heart line</div>
+        <div class="popup-aim-val" id="popup-aim-val"></div>
+        <div class="popup-aim-frac" id="popup-aim-frac"></div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="page-wrap">
-
-  <!-- Home -->
   <div id="home">
     <div class="home-section-title">Select Rifle</div>
     <div class="rifle-btn blue" onclick="openRifle('m12old')">
@@ -340,7 +301,6 @@
       <div class="rifle-btn-sub">CZ 455 — Pard TD32-70</div>
       <div class="rifle-btn-zero" id="home-cz-zero">Zero: 50 yd</div>
     </div>
-
     <div class="home-section-title">Animal Reference</div>
     <div class="animal-grid">
       <div class="animal-card"><div class="animal-card-name">🦊 Fox</div><div class="animal-card-stat">Shoulder: <span>38 cm / 15"</span><br>Body: <span>68 cm / 27"</span></div></div>
@@ -369,17 +329,12 @@
           <button class="zero-pill" id="old-btn-100" onclick="setOldZero(100)">100 yd</button>
         </div>
       </div>
-      <div class="animal-selector">
-        <div class="animal-selector-label">Select animal for holdover</div>
-        <div class="animal-pills" id="old-animal-pills"></div>
-      </div>
+      <div class="tap-hint">↓ Tap any range row for holdover</div>
       <div class="section-title" id="old-section-title">Trajectory — 200 yd zero</div>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Range</th><th>Drop (in)</th><th>Come up (in)</th><th>Windage (in)</th></tr></thead>
-          <tbody id="old-tbody"></tbody>
-        </table>
-      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Range</th><th>Drop (in)</th><th>Come up (in)</th><th>Windage (in)</th></tr></thead>
+        <tbody id="old-tbody"></tbody>
+      </table></div>
     </div>
   </div>
 
@@ -397,17 +352,12 @@
           <button class="zero-pill" id="new-btn-100" onclick="setNewZero(100)">100 yd</button>
         </div>
       </div>
-      <div class="animal-selector">
-        <div class="animal-selector-label">Select animal for holdover</div>
-        <div class="animal-pills" id="new-animal-pills"></div>
-      </div>
+      <div class="tap-hint">↓ Tap any range row for holdover</div>
       <div class="section-title" id="new-section-title">Trajectory — 200 yd zero</div>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Range</th><th>Drop (in)</th><th>Come up (in)</th><th>Windage (in)</th></tr></thead>
-          <tbody id="new-tbody"></tbody>
-        </table>
-      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Range</th><th>Drop (in)</th><th>Come up (in)</th><th>Windage (in)</th></tr></thead>
+        <tbody id="new-tbody"></tbody>
+      </table></div>
     </div>
   </div>
 
@@ -425,31 +375,24 @@
           <button class="zero-pill" id="cz-btn-60" onclick="setCZZero(60)">60 yd</button>
         </div>
       </div>
-      <div class="animal-selector">
-        <div class="animal-selector-label">Select animal for holdover</div>
-        <div class="animal-pills" id="cz-animal-pills"></div>
-      </div>
+      <div class="tap-hint">↓ Tap any range row for holdover</div>
       <div class="section-title" id="cz-section-title">Trajectory — 50 yd zero</div>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr><th>Range</th><th>Vel (fps)</th><th>Drop (in)</th><th>Hold (mil)</th></tr></thead>
-          <tbody id="cz-tbody"></tbody>
-        </table>
-      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Range</th><th>Vel (fps)</th><th>Drop (in)</th><th>Hold (mil)</th></tr></thead>
+        <tbody id="cz-tbody"></tbody>
+      </table></div>
     </div>
   </div>
-
 </div>
 
 <script>
-// ── Animal data (shoulder height in inches) ──
 const animalsM12 = [
   {id:'fox',    name:'Fox',          emoji:'🦊', shoulder:15.0},
   {id:'red',    name:'Red Deer',     emoji:'🦌', shoulder:48.0},
-  {id:'fallow', name:'Fallow Deer',  emoji:'🦌', shoulder:35.4},
+  {id:'fallow', name:'Fallow',       emoji:'🦌', shoulder:35.4},
   {id:'roe',    name:'Roe Deer',     emoji:'🦌', shoulder:26.8},
   {id:'muntjac',name:'Muntjac',      emoji:'🦌', shoulder:18.9},
-  {id:'cwd',    name:'Chinese Water',emoji:'🦌', shoulder:19.7},
+  {id:'cwd',    name:'CW Deer',      emoji:'🦌', shoulder:19.7},
   {id:'goat',   name:'Feral Goat',   emoji:'🐐', shoulder:27.6},
 ];
 const animalsCZ = [
@@ -458,266 +401,150 @@ const animalsCZ = [
   {id:'fox',    name:'Fox',    emoji:'🦊', shoulder:15.0},
 ];
 
-// ── Trajectory data ──
 const oldData = {
-  200:[
-    [0,'-2.50','+2.50','-0.07'],[20,'-1.51','+1.51','-0.04'],[40,'-0.68','+0.68','-0.02'],
-    [60,'-0.02','+0.02','-0.00'],[80,'+0.49','-0.49','+0.01'],[100,'+0.83','-0.83','+0.02'],
-    [120,'+1.01','-1.01','+0.03'],[140,'+1.02','-1.02','+0.03'],[160,'+0.86','-0.86','+0.02'],
-    [180,'+0.52','-0.52','+0.01'],[200,'0.00','-0.00','0.00'],[220,'-0.70','+0.70','-0.02'],
-    [240,'-1.58','+1.58','-0.04'],[260,'-2.64','+2.64','-0.07'],[280,'-3.89','+3.89','-0.10'],
-    [300,'-5.34','+5.34','-0.14'],[320,'-9.65','+9.65','-0.26'],[340,'-11.65','+11.65','-0.31'],
-    [360,'-13.86','+13.86','-0.37'],[380,'-16.27','+16.27','-0.43'],[400,'-18.89','+18.89','-0.50'],
-    [420,'-21.72','+21.72','-0.58'],[440,'-24.76','+24.76','-0.66'],[460,'-28.02','+28.02','-0.75'],
-    [480,'-31.51','+31.51','-0.84'],[500,'-35.22','+35.22','-0.94'],
-  ],
-  100:[
-    [0,'-2.50','+2.50','-0.07'],[20,'-1.68','+1.68','-0.04'],[40,'-1.02','+1.02','-0.03'],
-    [60,'-0.52','+0.52','-0.01'],[80,'-0.18','+0.18','-0.00'],[100,'0.00','-0.00','0.00'],
-    [120,'+0.01','-0.01','0.00'],[140,'-0.15','+0.15','-0.00'],[160,'-0.48','+0.48','-0.01'],
-    [180,'-0.99','+0.99','-0.03'],[200,'-1.67','+1.67','-0.04'],[220,'-2.53','+2.53','-0.07'],
-    [240,'-3.58','+3.58','-0.10'],[260,'-4.81','+4.81','-0.13'],[280,'-6.23','+6.23','-0.17'],
-    [300,'-7.84','+7.84','-0.21'],[320,'-9.65','+9.65','-0.26'],[340,'-11.65','+11.65','-0.31'],
-    [360,'-13.86','+13.86','-0.37'],[380,'-16.27','+16.27','-0.43'],[400,'-18.89','+18.89','-0.50'],
-    [420,'-21.72','+21.72','-0.58'],[440,'-24.76','+24.76','-0.66'],[460,'-28.02','+28.02','-0.75'],
-    [480,'-31.51','+31.51','-0.84'],[500,'-35.22','+35.22','-0.94'],
-  ]
+  200:[[0,'-2.50','+2.50','-0.07'],[20,'-1.51','+1.51','-0.04'],[40,'-0.68','+0.68','-0.02'],[60,'-0.02','+0.02','-0.00'],[80,'+0.49','-0.49','+0.01'],[100,'+0.83','-0.83','+0.02'],[120,'+1.01','-1.01','+0.03'],[140,'+1.02','-1.02','+0.03'],[160,'+0.86','-0.86','+0.02'],[180,'+0.52','-0.52','+0.01'],[200,'0.00','-0.00','0.00'],[220,'-0.70','+0.70','-0.02'],[240,'-1.58','+1.58','-0.04'],[260,'-2.64','+2.64','-0.07'],[280,'-3.89','+3.89','-0.10'],[300,'-5.34','+5.34','-0.14'],[320,'-9.65','+9.65','-0.26'],[340,'-11.65','+11.65','-0.31'],[360,'-13.86','+13.86','-0.37'],[380,'-16.27','+16.27','-0.43'],[400,'-18.89','+18.89','-0.50'],[420,'-21.72','+21.72','-0.58'],[440,'-24.76','+24.76','-0.66'],[460,'-28.02','+28.02','-0.75'],[480,'-31.51','+31.51','-0.84'],[500,'-35.22','+35.22','-0.94']],
+  100:[[0,'-2.50','+2.50','-0.07'],[20,'-1.68','+1.68','-0.04'],[40,'-1.02','+1.02','-0.03'],[60,'-0.52','+0.52','-0.01'],[80,'-0.18','+0.18','-0.00'],[100,'0.00','-0.00','0.00'],[120,'+0.01','-0.01','0.00'],[140,'-0.15','+0.15','-0.00'],[160,'-0.48','+0.48','-0.01'],[180,'-0.99','+0.99','-0.03'],[200,'-1.67','+1.67','-0.04'],[220,'-2.53','+2.53','-0.07'],[240,'-3.58','+3.58','-0.10'],[260,'-4.81','+4.81','-0.13'],[280,'-6.23','+6.23','-0.17'],[300,'-7.84','+7.84','-0.21'],[320,'-9.65','+9.65','-0.26'],[340,'-11.65','+11.65','-0.31'],[360,'-13.86','+13.86','-0.37'],[380,'-16.27','+16.27','-0.43'],[400,'-18.89','+18.89','-0.50'],[420,'-21.72','+21.72','-0.58'],[440,'-24.76','+24.76','-0.66'],[460,'-28.02','+28.02','-0.75'],[480,'-31.51','+31.51','-0.84'],[500,'-35.22','+35.22','-0.94']]
 };
 const newData = {
-  200:[
-    [0,'-2.05','+2.05','-0.05'],[20,'-1.11','+1.11','-0.03'],[40,'-0.32','+0.32','-0.01'],
-    [60,'+0.30','-0.30','+0.01'],[80,'+0.76','-0.76','+0.02'],[100,'+1.06','-1.06','+0.03'],
-    [120,'+1.19','-1.19','+0.03'],[140,'+1.16','-1.16','+0.03'],[160,'+0.95','-0.95','+0.03'],
-    [180,'+0.56','-0.56','+0.01'],[200,'0.00','-0.00','0.00'],[220,'-0.74','+0.74','-0.02'],
-    [240,'-1.67','+1.67','-0.04'],[260,'-2.78','+2.78','-0.07'],[280,'-4.08','+4.08','-0.11'],
-    [300,'-5.57','+5.57','-0.15'],[320,'-10.65','+10.65','-0.28'],[340,'-12.74','+12.74','-0.34'],
-    [360,'-15.04','+15.04','-0.40'],[380,'-17.54','+17.54','-0.47'],[400,'-20.25','+20.25','-0.54'],
-    [420,'-23.18','+23.18','-0.62'],[440,'-26.31','+26.31','-0.70'],[460,'-29.67','+29.67','-0.79'],
-    [480,'-33.24','+33.24','-0.88'],[500,'-37.05','+37.05','-0.99'],
-  ],
-  100:[
-    [0,'-2.05','+2.05','-0.05'],[20,'-1.32','+1.32','-0.04'],[40,'-0.75','+0.75','-0.02'],
-    [60,'-0.34','+0.34','-0.01'],[80,'-0.09','+0.09','-0.00'],[100,'0.00','-0.00','0.00'],
-    [120,'-0.08','+0.08','-0.00'],[140,'-0.33','+0.33','-0.01'],[160,'-0.75','+0.75','-0.02'],
-    [180,'-1.35','+1.35','-0.04'],[200,'-2.12','+2.12','-0.06'],[220,'-3.07','+3.07','-0.08'],
-    [240,'-4.21','+4.21','-0.11'],[260,'-5.53','+5.53','-0.15'],[280,'-7.04','+7.04','-0.19'],
-    [300,'-8.75','+8.75','-0.23'],[320,'-10.65','+10.65','-0.28'],[340,'-12.74','+12.74','-0.34'],
-    [360,'-15.04','+15.04','-0.40'],[380,'-17.54','+17.54','-0.47'],[400,'-20.25','+20.25','-0.54'],
-    [420,'-23.18','+23.18','-0.62'],[440,'-26.31','+26.31','-0.70'],[460,'-29.67','+29.67','-0.79'],
-    [480,'-33.24','+33.24','-0.88'],[500,'-37.05','+37.05','-0.99'],
-  ]
+  200:[[0,'-2.05','+2.05','-0.05'],[20,'-1.11','+1.11','-0.03'],[40,'-0.32','+0.32','-0.01'],[60,'+0.30','-0.30','+0.01'],[80,'+0.76','-0.76','+0.02'],[100,'+1.06','-1.06','+0.03'],[120,'+1.19','-1.19','+0.03'],[140,'+1.16','-1.16','+0.03'],[160,'+0.95','-0.95','+0.03'],[180,'+0.56','-0.56','+0.01'],[200,'0.00','-0.00','0.00'],[220,'-0.74','+0.74','-0.02'],[240,'-1.67','+1.67','-0.04'],[260,'-2.78','+2.78','-0.07'],[280,'-4.08','+4.08','-0.11'],[300,'-5.57','+5.57','-0.15'],[320,'-10.65','+10.65','-0.28'],[340,'-12.74','+12.74','-0.34'],[360,'-15.04','+15.04','-0.40'],[380,'-17.54','+17.54','-0.47'],[400,'-20.25','+20.25','-0.54'],[420,'-23.18','+23.18','-0.62'],[440,'-26.31','+26.31','-0.70'],[460,'-29.67','+29.67','-0.79'],[480,'-33.24','+33.24','-0.88'],[500,'-37.05','+37.05','-0.99']],
+  100:[[0,'-2.05','+2.05','-0.05'],[20,'-1.32','+1.32','-0.04'],[40,'-0.75','+0.75','-0.02'],[60,'-0.34','+0.34','-0.01'],[80,'-0.09','+0.09','-0.00'],[100,'0.00','-0.00','0.00'],[120,'-0.08','+0.08','-0.00'],[140,'-0.33','+0.33','-0.01'],[160,'-0.75','+0.75','-0.02'],[180,'-1.35','+1.35','-0.04'],[200,'-2.12','+2.12','-0.06'],[220,'-3.07','+3.07','-0.08'],[240,'-4.21','+4.21','-0.11'],[260,'-5.53','+5.53','-0.15'],[280,'-7.04','+7.04','-0.19'],[300,'-8.75','+8.75','-0.23'],[320,'-10.65','+10.65','-0.28'],[340,'-12.74','+12.74','-0.34'],[360,'-15.04','+15.04','-0.40'],[380,'-17.54','+17.54','-0.47'],[400,'-20.25','+20.25','-0.54'],[420,'-23.18','+23.18','-0.62'],[440,'-26.31','+26.31','-0.70'],[460,'-29.67','+29.67','-0.79'],[480,'-33.24','+33.24','-0.88'],[500,'-37.05','+37.05','-0.99']]
 };
 const czData = [
-  [0,1010,{d50:'-1.97',h50:'—',d60:'-1.97',h60:'—'}],
-  [5,993,{d50:'-1.38',h50:'+5.4',d60:'-1.31',h60:'+5.1'}],
-  [10,977,{d50:'-0.79',h50:'+2.2',d60:'-0.64',h60:'+1.8'}],
-  [15,961,{d50:'-0.34',h50:'+0.6',d60:'-0.11',h60:'+0.2'}],
-  [20,945,{d50:'+0.02',h50:'-0.0',d60:'+0.32',h60:'-0.4'}],
-  [25,929,{d50:'+0.28',h50:'-0.3',d60:'+0.66',h60:'-0.7'}],
-  [30,914,{d50:'+0.44',h50:'-0.4',d60:'+0.89',h60:'-0.8'}],
-  [35,899,{d50:'+0.49',h50:'-0.4',d60:'+1.03',h60:'-0.8'}],
-  [40,884,{d50:'+0.44',h50:'-0.3',d60:'+1.05',h60:'-0.7'}],
-  [45,869,{d50:'+0.28',h50:'-0.2',d60:'+0.97',h60:'-0.6'}],
-  [50,855,{d50:'-0.00',h50:'+0.0',d60:'+0.76',h60:'-0.4'}],
-  [55,841,{d50:'-0.40',h50:'+0.2',d60:'+0.44',h60:'-0.2'}],
-  [60,827,{d50:'-0.92',h50:'+0.4',d60:'+0.00',h60:'-0.0'}],
-  [65,813,{d50:'-1.56',h50:'+0.7',d60:'-0.57',h60:'+0.2'}],
-  [70,800,{d50:'-2.34',h50:'+0.9',d60:'-1.27',h60:'+0.5'}],
-  [75,786,{d50:'-3.26',h50:'+1.2',d60:'-2.11',h60:'+0.8'}],
-  [80,773,{d50:'-4.31',h50:'+1.5',d60:'-3.09',h60:'+1.1'}],
-  [85,761,{d50:'-5.51',h50:'+1.8',d60:'-4.21',h60:'+1.4'}],
-  [90,748,{d50:'-6.86',h50:'+2.1',d60:'-5.49',h60:'+1.7'}],
-  [95,736,{d50:'-8.37',h50:'+2.4',d60:'-6.91',h60:'+2.0'}],
-  [100,724,{d50:'-10.03',h50:'+2.8',d60:'-8.50',h60:'+2.4'}],
-  [105,712,{d50:'-11.93',h50:'+3.1',d60:'-10.34',h60:'+2.7'}],
-  [110,700,{d50:'-13.87',h50:'+3.5',d60:'-12.19',h60:'+3.1'}],
-  [115,689,{d50:'-16.10',h50:'+3.9',d60:'-14.37',h60:'+3.5'}],
-  [120,677,{d50:'-18.41',h50:'+4.3',d60:'-16.58',h60:'+3.8'}],
-  [125,666,{d50:'-20.99',h50:'+4.7',d60:'-19.11',h60:'+4.2'}],
-  [130,655,{d50:'-23.72',h50:'+5.1',d60:'-21.73',h60:'+4.6'}],
-  [135,644,{d50:'-26.72',h50:'+5.5',d60:'-24.69',h60:'+5.0'}],
-  [140,633,{d50:'-29.83',h50:'+5.9',d60:'-27.69',h60:'+5.5'}],
-  [145,622,{d50:'-33.24',h50:'+6.4',d60:'-31.05',h60:'+6.0'}],
-  [150,613,{d50:'-36.81',h50:'+6.8',d60:'-34.52',h60:'+6.4'}],
-  [155,603,{d50:'-40.68',h50:'+7.3',d60:'-38.34',h60:'+6.9'}],
-  [160,593,{d50:'-44.72',h50:'+7.8',d60:'-42.28',h60:'+7.3'}],
-  [165,583,{d50:'-49.10',h50:'+8.3',d60:'-46.59',h60:'+7.9'}],
-  [170,573,{d50:'-53.62',h50:'+8.8',d60:'-51.03',h60:'+8.3'}],
-  [175,563,{d50:'-58.51',h50:'+9.3',d60:'-55.86',h60:'+8.9'}],
-  [180,554,{d50:'-63.58',h50:'+9.8',d60:'-60.83',h60:'+9.4'}],
-  [185,545,{d50:'-69.03',h50:'+10.4',d60:'-66.22',h60:'+9.9'}],
-  [190,536,{d50:'-74.67',h50:'+10.9',d60:'-71.77',h60:'+10.5'}],
-  [195,527,{d50:'-80.73',h50:'+11.5',d60:'-77.77',h60:'+11.1'}],
-  [200,519,{d50:'-86.97',h50:'+12.1',d60:'-83.92',h60:'+11.7'}],
+  [0,1010,{d50:'-1.97',h50:'—',d60:'-1.97',h60:'—'}],[5,993,{d50:'-1.38',h50:'+5.4',d60:'-1.31',h60:'+5.1'}],[10,977,{d50:'-0.79',h50:'+2.2',d60:'-0.64',h60:'+1.8'}],[15,961,{d50:'-0.34',h50:'+0.6',d60:'-0.11',h60:'+0.2'}],[20,945,{d50:'+0.02',h50:'-0.0',d60:'+0.32',h60:'-0.4'}],[25,929,{d50:'+0.28',h50:'-0.3',d60:'+0.66',h60:'-0.7'}],[30,914,{d50:'+0.44',h50:'-0.4',d60:'+0.89',h60:'-0.8'}],[35,899,{d50:'+0.49',h50:'-0.4',d60:'+1.03',h60:'-0.8'}],[40,884,{d50:'+0.44',h50:'-0.3',d60:'+1.05',h60:'-0.7'}],[45,869,{d50:'+0.28',h50:'-0.2',d60:'+0.97',h60:'-0.6'}],[50,855,{d50:'-0.00',h50:'+0.0',d60:'+0.76',h60:'-0.4'}],[55,841,{d50:'-0.40',h50:'+0.2',d60:'+0.44',h60:'-0.2'}],[60,827,{d50:'-0.92',h50:'+0.4',d60:'+0.00',h60:'-0.0'}],[65,813,{d50:'-1.56',h50:'+0.7',d60:'-0.57',h60:'+0.2'}],[70,800,{d50:'-2.34',h50:'+0.9',d60:'-1.27',h60:'+0.5'}],[75,786,{d50:'-3.26',h50:'+1.2',d60:'-2.11',h60:'+0.8'}],[80,773,{d50:'-4.31',h50:'+1.5',d60:'-3.09',h60:'+1.1'}],[85,761,{d50:'-5.51',h50:'+1.8',d60:'-4.21',h60:'+1.4'}],[90,748,{d50:'-6.86',h50:'+2.1',d60:'-5.49',h60:'+1.7'}],[95,736,{d50:'-8.37',h50:'+2.4',d60:'-6.91',h60:'+2.0'}],[100,724,{d50:'-10.03',h50:'+2.8',d60:'-8.50',h60:'+2.4'}],[105,712,{d50:'-11.93',h50:'+3.1',d60:'-10.34',h60:'+2.7'}],[110,700,{d50:'-13.87',h50:'+3.5',d60:'-12.19',h60:'+3.1'}],[115,689,{d50:'-16.10',h50:'+3.9',d60:'-14.37',h60:'+3.5'}],[120,677,{d50:'-18.41',h50:'+4.3',d60:'-16.58',h60:'+3.8'}],[125,666,{d50:'-20.99',h50:'+4.7',d60:'-19.11',h60:'+4.2'}],[130,655,{d50:'-23.72',h50:'+5.1',d60:'-21.73',h60:'+4.6'}],[135,644,{d50:'-26.72',h50:'+5.5',d60:'-24.69',h60:'+5.0'}],[140,633,{d50:'-29.83',h50:'+5.9',d60:'-27.69',h60:'+5.5'}],[145,622,{d50:'-33.24',h50:'+6.4',d60:'-31.05',h60:'+6.0'}],[150,613,{d50:'-36.81',h50:'+6.8',d60:'-34.52',h60:'+6.4'}],[155,603,{d50:'-40.68',h50:'+7.3',d60:'-38.34',h60:'+6.9'}],[160,593,{d50:'-44.72',h50:'+7.8',d60:'-42.28',h60:'+7.3'}],[165,583,{d50:'-49.10',h50:'+8.3',d60:'-46.59',h60:'+7.9'}],[170,573,{d50:'-53.62',h50:'+8.8',d60:'-51.03',h60:'+8.3'}],[175,563,{d50:'-58.51',h50:'+9.3',d60:'-55.86',h60:'+8.9'}],[180,554,{d50:'-63.58',h50:'+9.8',d60:'-60.83',h60:'+9.4'}],[185,545,{d50:'-69.03',h50:'+10.4',d60:'-66.22',h60:'+9.9'}],[190,536,{d50:'-74.67',h50:'+10.9',d60:'-71.77',h60:'+10.5'}],[195,527,{d50:'-80.73',h50:'+11.5',d60:'-77.77',h60:'+11.1'}],[200,519,{d50:'-86.97',h50:'+12.1',d60:'-83.92',h60:'+11.7'}]
 ];
 
 let oldZero=200, newZero=200, czZero=50;
-let selectedAnimal = {m12old:null, m12new:null, cz455:null};
-let currentRifle = null;
+let currentRifle=null;
+let popupDrop=0, popupYd=0;
 
-// ── Fraction helper ──
-function toFraction(ratio) {
-  const fracs = [
-    {val:0.25, str:'¼'},{val:0.33, str:'⅓'},{val:0.5, str:'½'},
-    {val:0.67, str:'⅔'},{val:0.75, str:'¾'},{val:1.0, str:'1 whole'},
-    {val:1.25, str:'1¼'},{val:1.5, str:'1½'},{val:2.0, str:'2 whole'},
-  ];
-  let best = fracs[0], bestDiff = Math.abs(ratio - fracs[0].val);
-  for (const f of fracs) {
-    const d = Math.abs(ratio - f.val);
-    if (d < bestDiff) { bestDiff = d; best = f; }
-  }
-  return best.str;
-}
-
-function dc(v) {
-  if (!v || v==='—') return '';
-  if (v.startsWith('+') && v!=='+0.00' && v!=='+0.0') return 'pos';
-  if (v.startsWith('-') && v!=='-0.00' && v!=='-0.0') return 'neg';
+function dc(v){
+  if(!v||v==='—') return '';
+  if(v.startsWith('+')&&v!=='+0.00'&&v!=='+0.0') return 'pos';
+  if(v.startsWith('-')&&v!=='-0.00'&&v!=='-0.0') return 'neg';
   return '';
 }
 
-// ── Animal pills ──
-function buildAnimalPills(containerId, animals, rifleId, colorClass) {
-  const el = document.getElementById(containerId);
-  el.innerHTML = '';
-  for (const a of animals) {
-    const btn = document.createElement('button');
-    btn.className = 'animal-pill';
-    btn.textContent = a.emoji + ' ' + a.name;
-    btn.onclick = () => selectAnimal(rifleId, a, colorClass, containerId);
-    btn.id = 'pill-' + rifleId + '-' + a.id;
-    el.appendChild(btn);
-  }
+function toFraction(ratio){
+  const f=[{v:0.25,s:'¼'},{v:0.33,s:'⅓'},{v:0.5,s:'½'},{v:0.67,s:'⅔'},{v:0.75,s:'¾'},{v:1.0,s:'1 whole'},{v:1.25,s:'1¼'},{v:1.5,s:'1½'},{v:1.75,s:'1¾'},{v:2.0,s:'2 whole'},{v:2.5,s:'2½'},{v:3.0,s:'3 whole'}];
+  let best=f[0],bd=Math.abs(ratio-f[0].v);
+  for(const x of f){const d=Math.abs(ratio-x.v);if(d<bd){bd=d;best=x;}}
+  return best.s;
 }
 
-function selectAnimal(rifleId, animal, colorClass, containerId) {
-  selectedAnimal[rifleId] = animal;
-  const pills = document.querySelectorAll('#' + containerId + ' .animal-pill');
-  pills.forEach(p => p.className = 'animal-pill');
-  document.getElementById('pill-' + rifleId + '-' + animal.id).className = 'animal-pill ' + colorClass;
-  // Re-render table to update styling
-  if (rifleId === 'm12old') renderM12(oldData, oldZero, 'old-tbody', 'old-section-title', 'm12old');
-  if (rifleId === 'm12new') renderM12(newData, newZero, 'new-tbody', 'new-section-title', 'm12new');
-  if (rifleId === 'cz455') setCZZero(czZero);
-}
-
-// ── Popup ──
-function showPopup(yd, dropStr, rifleId, colorClass) {
-  const animal = selectedAnimal[rifleId];
-  if (!animal) return;
+function openPopup(yd, dropStr, rifleId){
   const drop = Math.abs(parseFloat(dropStr));
-  if (isNaN(drop) || drop === 0) return;
-  const ratio = drop / animal.shoulder;
-  const frac = toFraction(ratio);
-  document.getElementById('popup-animal').textContent = animal.emoji;
-  document.getElementById('popup-title').textContent = animal.name + ' — ' + yd + ' yards';
-  document.getElementById('popup-sub').textContent = 'Aim above the shoulder/heart line';
-  document.getElementById('popup-drop').textContent = drop.toFixed(2) + '" (' + (drop * 2.54).toFixed(1) + ' cm)';
-  document.getElementById('popup-aim-val').textContent = drop.toFixed(2) + '" above shoulder/heart line';
-  document.getElementById('popup-aim-frac').textContent = 'About ' + frac + ' of a ' + animal.name.toLowerCase() + "'s shoulder height";
-  const box = document.getElementById('popup-aim-box');
-  box.className = 'popup-aim' + (colorClass === 'selected-green' ? ' green' : colorClass === 'selected-amber' ? ' amber' : '');
-  document.getElementById('popup-overlay').classList.add('open');
-}
+  popupDrop = drop; popupYd = yd;
+  document.getElementById('popup-range').innerHTML = yd+' <span>yards</span>';
+  document.getElementById('popup-drop-val').textContent = drop.toFixed(2)+'" ('+( drop*2.54).toFixed(1)+' cm)';
+  document.getElementById('popup-result').style.display='none';
 
-function closePopup(e) {
-  if (!e || e.target === document.getElementById('popup-overlay')) {
-    document.getElementById('popup-overlay').classList.remove('open');
-  }
-}
-
-// ── Render M12 ──
-function renderM12(data, zero, tbodyId, titleId, rifleId) {
-  document.getElementById(titleId).textContent = 'Trajectory — ' + zero + ' yd zero';
-  const colorMap = {m12old:'selected-blue', m12new:'selected-green'};
+  const animals = rifleId==='cz455' ? animalsCZ : animalsM12;
+  const colorMap = {m12old:'sel-blue', m12new:'sel-green', cz455:'sel-amber'};
+  const aimColor = {m12old:'', m12new:'green', cz455:'amber'};
   const cc = colorMap[rifleId];
-  const hasAnimal = !!selectedAnimal[rifleId];
-  let html = '';
-  for (const [yd, drop, comeup, wind] of data[zero]) {
-    const hl = yd===zero ? ' class="zero-row-hl"' : '';
-    const label = yd===zero ? yd+' yd ●' : yd+' yd';
-    const clickable = hasAnimal && drop !== '0.00' && !drop.startsWith('+') ? ` onclick="showPopup(${yd},'${drop}','${rifleId}','${cc}')"` : '';
-    html += `<tr${hl}${clickable}><td>${label}</td><td class="${dc(drop)}">${drop}</td><td class="${dc(comeup)}">${comeup}</td><td class="${dc(wind)}">${wind}</td></tr>`;
+  const ac = aimColor[rifleId];
+
+  const grid = document.getElementById('popup-animal-grid');
+  grid.innerHTML='';
+  for(const a of animals){
+    const btn=document.createElement('button');
+    btn.className='popup-animal-btn';
+    btn.innerHTML=`<span class="pa-emoji">${a.emoji}</span>${a.name}`;
+    btn.onclick=()=>{
+      document.querySelectorAll('.popup-animal-btn').forEach(b=>b.className='popup-animal-btn');
+      btn.className='popup-animal-btn '+cc;
+      const ratio=drop/a.shoulder;
+      const frac=toFraction(ratio);
+      document.getElementById('popup-aim-val').textContent=drop.toFixed(2)+'" above shoulder/heart line';
+      document.getElementById('popup-aim-frac').textContent='About '+frac+' of a '+a.name.toLowerCase()+"'s shoulder height";
+      document.getElementById('popup-aim-box').className='popup-aim-box'+(ac?' '+ac:'');
+      document.getElementById('popup-result').style.display='block';
+    };
+    grid.appendChild(btn);
   }
-  document.getElementById(tbodyId).innerHTML = html;
+  document.getElementById('popup-overlay').style.display='flex';
 }
 
-function setOldZero(z) {
-  oldZero = z;
-  document.getElementById('old-banner-val').innerHTML = z+' <span>yards</span>';
+function closePopup(){ document.getElementById('popup-overlay').style.display='none'; }
+
+document.getElementById('popup-overlay').addEventListener('click',function(e){
+  if(e.target===this) closePopup();
+});
+
+function renderM12(data,zero,tbodyId,titleId,rifleId){
+  document.getElementById(titleId).textContent='Trajectory — '+zero+' yd zero';
+  let html='';
+  for(const [yd,drop,comeup,wind] of data[zero]){
+    const hl=yd===zero?' class="zero-row-hl"':'';
+    const label=yd===zero?yd+' yd ●':yd+' yd';
+    html+=`<tr${hl} onclick="openPopup(${yd},'${drop}','${rifleId}')"><td>${label}</td><td class="${dc(drop)}">${drop}</td><td class="${dc(comeup)}">${comeup}</td><td class="${dc(wind)}">${wind}</td></tr>`;
+  }
+  document.getElementById(tbodyId).innerHTML=html;
+}
+
+function setOldZero(z){
+  oldZero=z;
+  document.getElementById('old-banner-val').innerHTML=z+' <span>yards</span>';
   document.getElementById('old-btn-200').className='zero-pill'+(z===200?' active-blue':'');
   document.getElementById('old-btn-100').className='zero-pill'+(z===100?' active-blue':'');
   document.getElementById('home-old-zero').textContent='Zero: '+z+' yd';
-  renderM12(oldData, z, 'old-tbody', 'old-section-title', 'm12old');
+  renderM12(oldData,z,'old-tbody','old-section-title','m12old');
 }
-
-function setNewZero(z) {
-  newZero = z;
-  document.getElementById('new-banner-val').innerHTML = z+' <span>yards</span>';
+function setNewZero(z){
+  newZero=z;
+  document.getElementById('new-banner-val').innerHTML=z+' <span>yards</span>';
   document.getElementById('new-btn-200').className='zero-pill'+(z===200?' active-green':'');
   document.getElementById('new-btn-100').className='zero-pill'+(z===100?' active-green':'');
   document.getElementById('home-new-zero').textContent='Zero: '+z+' yd';
-  renderM12(newData, z, 'new-tbody', 'new-section-title', 'm12new');
+  renderM12(newData,z,'new-tbody','new-section-title','m12new');
 }
-
-function setCZZero(z) {
-  czZero = z;
-  document.getElementById('cz-banner-val').innerHTML = z+' <span>yards</span>';
+function setCZZero(z){
+  czZero=z;
+  document.getElementById('cz-banner-val').innerHTML=z+' <span>yards</span>';
   document.getElementById('cz-btn-50').className='zero-pill'+(z===50?' active-amber':'');
   document.getElementById('cz-btn-60').className='zero-pill'+(z===60?' active-amber':'');
   document.getElementById('cz-section-title').textContent='Trajectory — '+z+' yd zero';
   document.getElementById('home-cz-zero').textContent='Zero: '+z+' yd';
-  const dk=z===50?'d50':'d60', hk=z===50?'h50':'h60';
-  const hasAnimal = !!selectedAnimal['cz455'];
+  const dk=z===50?'d50':'d60',hk=z===50?'h50':'h60';
   let html='';
-  for (const [yd,vel,vals] of czData) {
+  for(const [yd,vel,vals] of czData){
     const hl=yd===z?' class="zero-row-hl"':'';
     const label=yd===z?yd+' yd ●':yd+' yd';
-    const dropVal = vals[dk];
-    const isNeg = dropVal.startsWith('-') && dropVal !== '-0.00';
-    const clickable = hasAnimal && isNeg ? ` onclick="showPopup(${yd},'${dropVal}','cz455','selected-amber')"` : '';
-    html+=`<tr${hl}${clickable}><td>${label}</td><td>${vel}</td><td class="${dc(dropVal)}">${dropVal}"</td><td>${vals[hk]}</td></tr>`;
+    html+=`<tr${hl} onclick="openPopup(${yd},'${vals[dk]}','cz455')"><td>${label}</td><td>${vel}</td><td class="${dc(vals[dk])}">${vals[dk]}"</td><td>${vals[hk]}</td></tr>`;
   }
   document.getElementById('cz-tbody').innerHTML=html;
 }
 
-function openRifle(id) {
-  currentRifle = id;
+function openRifle(id){
+  currentRifle=id;
   document.getElementById('home').style.display='none';
   document.querySelectorAll('.rifle-page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   document.getElementById('back-btn').style.visibility='visible';
   closeSettings();
 }
-
-function goHome() {
-  currentRifle = null;
+function goHome(){
+  currentRifle=null;
   document.getElementById('home').style.display='flex';
   document.querySelectorAll('.rifle-page').forEach(p=>p.classList.remove('active'));
   document.getElementById('back-btn').style.visibility='hidden';
   closeSettings();
 }
+function toggleSettings(){document.getElementById('settings-panel').classList.toggle('open');}
+function closeSettings(){document.getElementById('settings-panel').classList.remove('open');}
 
-function toggleSettings() { document.getElementById('settings-panel').classList.toggle('open'); }
-function closeSettings() { document.getElementById('settings-panel').classList.remove('open'); }
-
-function unlock() {
-  if (document.getElementById('pw-input').value==='5988') {
+function unlock(){
+  if(document.getElementById('pw-input').value==='5988'){
     document.getElementById('lock').style.display='none';
-    try { localStorage.setItem('bal_auth','1'); } catch(e){}
-  } else {
+    try{localStorage.setItem('bal_auth','1');}catch(e){}
+  }else{
     document.getElementById('lock-error').textContent='Incorrect password';
     document.getElementById('pw-input').value='';
     document.getElementById('pw-input').focus();
   }
 }
-try { if (localStorage.getItem('bal_auth')==='1') document.getElementById('lock').style.display='none'; } catch(e){}
+try{if(localStorage.getItem('bal_auth')==='1')document.getElementById('lock').style.display='none';}catch(e){}
 
-// Init
-buildAnimalPills('old-animal-pills', animalsM12, 'm12old', 'selected-blue');
-buildAnimalPills('new-animal-pills', animalsM12, 'm12new', 'selected-green');
-buildAnimalPills('cz-animal-pills', animalsCZ, 'cz455', 'selected-amber');
 renderM12(oldData,200,'old-tbody','old-section-title','m12old');
 renderM12(newData,200,'new-tbody','new-section-title','m12new');
 setCZZero(50);
